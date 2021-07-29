@@ -28,6 +28,7 @@
 
 <h3>2.3 최근 재생한 음악</h3>
 <img src="figmaPrac/img/3.png">
+<p></p>
 
 <h3>2.4 다음 프로그램</h3>
 <img src="figmaPrac/img/4.png">
@@ -37,5 +38,5 @@
 <p>리모컨처럼 고정되어 스크롤을 내려도 따라옴</p>
 
 <h2>3. 웹 호스팅</h2>
-<p>만든 연습물을 git hub로 호스팅해보았다.</p>
-<p><a href = "https://kmulikelionstudy.github.io/Euion-study/figmaPrac/apple01.html">애플뮤직</p>
+<p>만든 연습물을 github로 호스팅해보았다.</p>
+<p><a href = "https://kmulikelionstudy.github.io/Euion-study/figmaPrac/apple01.html">애플뮤직</a></p>
