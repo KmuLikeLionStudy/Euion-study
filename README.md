@@ -45,5 +45,5 @@
 
 <h2> 피그마 & 제플린 - 포트폴리오 디자인 & 코딩 <h2>
 <h2>1. 피그마로 포트폴리오 디자인</h2>
-<img src="MyDesign/img/finDe.png">
+<img src="MyDesign/img/finde.png">
 <p> 피그마로 포트폴리오를 디자인했다. </P>
