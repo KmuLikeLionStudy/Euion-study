@@ -11,8 +11,8 @@
 
 <h2>2. 피그마 코드화</h2>
 <p>피그마 코드화를 위해서는 제플린(Zeplin)과 연동시키면 좋다. 피그마 안에서도 코드를 제공하지만 제플린의 경우 피그마와 함께 사용하면 좋을 기능을 추가로 제공한다 (예를 들면 swift 코드)</p>
-<pre><b>[Zeplin 연동 방법]<b>
-<p>1. Zeplin for Figma 플러그인 설치 : https://www.figma.com/community/plugin/745330164019088593/Zeplin
+<pre>[Zeplin 연동 방법]
+<p>1. Zeplin for Figma 플러그인<a href="https://www.figma.com/community/plugin/745330164019088593/Zeplin">설치</a>
 2. export하려는 Frame을 선택한 뒤, 왼쪽 상단의 버튼 클릭 'plugin' -> 'zeplin'을 클릭 
 3.export 를 위한 로딩화면이 출력되며 로딩이 종료되면 Zepline Wep App이 열린다. 이때 어떤 프로젝트 파일에 업로드 할지 선택할 수 있다.
 4. 업로드할 파일 선택
@@ -30,7 +30,7 @@
 
 <h3>2.3 최근 재생한 음악</h3>
 <img src="figmaPrac/img/3.png">
-<p>최근 재생한 음악의 경우</p>
+<p></p>
 
 <h3>2.4 다음 프로그램</h3>
 <img src="figmaPrac/img/4.png">
@@ -42,3 +42,8 @@
 <h2>3. 웹 호스팅</h2>
 <p>연습한 작업물을 github로 호스팅해보았다. </p>
 <p><a href = "https://kmulikelionstudy.github.io/Euion-study/figmaPrac/apple01.html">애플뮤직</a></p>
+
+<h2> 피그마 & 제플린 - 포트폴리오 디자인 & 코딩 <h2>
+<h2>1. 피그마로 포트폴리오 디자인</h2>
+<img src="MyDesign/img/finDe.png">
+<p> 피그마로 포트폴리오를 디자인했다. </P>
