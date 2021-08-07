@@ -54,3 +54,23 @@ let user = {
   // user와 clone는 sizes를 공유.
   user.sizes.width++;       // 한 객체에서 프로퍼티를 변경.
   alert(clone.sizes.width); // 51, 다른 객체에서 변경 사항을 확인 가능.
+
+  //연결된 객체
+  function marry(man, woman) {
+    woman.husband = man;
+    man.wife = woman;
+  
+    return {
+      father: man,
+      mother: woman
+    }
+  }
+  
+  let family = marry({
+    name: "Bieber"
+  }, {
+    name: "Hailey"
+  });
+  
+  delete family.father;
+  delete family.mother.husband;

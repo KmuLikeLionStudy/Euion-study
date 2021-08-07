@@ -9,7 +9,7 @@
 <p>② 객체는 {}를 이용하여 만든다.</p>
 <p>③ 중괄호 안에는 키(key, 문자형):값(value, 자료형)쌍으로 구성된 프로퍼티(Property)를 저장 가능 </p>
 
-```
+```javascript
 let user = new object() //'객체 생성자' 문법
 let user = {} //'객체 리터럴' 문법
 
@@ -21,7 +21,7 @@ let user = {} //'객체 리터럴' 문법
 <h3>리터럴과 프로퍼티</h3>
 <p>1. 콜론(:)을 기준으로 왼쪽엔 키, 오른쪽엔 값 위치</p>
 
-```  
+```  javascript
 let user = {     // 객체
   name: "euion",  // 키: "name",  값: "euion"
   age: 30        // 키: "age", 값: 30
@@ -32,7 +32,7 @@ let user = {     // 객체
 
 <h4>상수 객체는 수정될 수 있다.</h4>
 
-```
+```javascript
 const user = {
   name: "LIM"
 };
@@ -45,7 +45,7 @@ alert(user.name); // euion
 <h3>대괄호 표기법</h3>
 <p> 객체를 만들 때 객체 리터럴 안의 키가 대괄호로 둘러쌓여져 있는 경우 computed property라고 부른다.</p>
 
-```
+```javascript
 let phone = prompt("당신이 원하는 폰 기종은 무엇인가요?", "buy");
 
 let euion = {
@@ -56,7 +56,7 @@ alert(euion.buy); //phone에 "apple"이 할당되었다면 galaxy가 출력된�
 
 <p> 해당 코드 중 `[phone]`은 프로퍼티 이름을 변수 phone에서 가져오겠다는 것을 의미한다. 이때 phone에는 galaxy가 할당되었므로 phone을 입력한다면 galaxy가 출력된다.</p>
 
-```
+```javascript
 let phone = 'galaxy';
 let euion = {
   [phone + 'Company']: "samsung" // euion.galaxyCompany = "samsung"
@@ -65,7 +65,7 @@ let euion = {
 <p>`+` 기호를 활용하여 좀 더 복잡하게 활용할 수도 있다.</p>
 <h3>for ...in 반복문</h3>
 
-```
+```javascript
 for (key in object) {
   // 각 프로퍼티 키(key)를 이용하여 본문(body)을 실행.
 }
@@ -84,6 +84,7 @@ for (let key in user) {
 }
 
 ```
+
 <p> `for(;;)`문과 `for .. in`은 반복변수(looping variable)를 선언하여 표현하였다. </p>
 
 <h4>프로퍼티에 순서가 있을까></h4>
@@ -97,18 +98,17 @@ for (let key in user) {
 <p> 아래의 값의 경우 각각 독립된 변수에 문자열 "Hello"가 저장된다.</p>
 
 
-```
+```javascript
 let message = "Hello!";
 let phrase = message;
 ```
 
 <p> 이때 <b>변수엔 객체가 그대로 저장되는 것이 아니라, 객체가 저장되어있는 '메모리 주소’인 객체에 대한 '참조 값’이 저장</b>되는것. 즉 <b>객체의 참조값이 복사되고 객체는 복사되지 않는다.</b></p>
 
-<h4>객체 복사, 병합</h4>
+<h4>객체 복사, 병합, Object.assign</h4>
 <p>복제가 필요한 상황일 경우 새로운 객체를 만든 다음 기존 객체의 프로퍼티들을 순회해 원시 수준까지 프로퍼티를 복사</p>
 
-```
-
+```javascript
 //객체 복사, 병합 예제
 let user = {
     name: "euion",
@@ -131,7 +131,7 @@ let user = {
 <b>단점 : 원시값일 경우만 가정하게 됨</b>
 
 
-```
+```javascript
   //중첩 객체 복사
   let user = {
     name: "euion",
@@ -156,6 +156,61 @@ let user = {
 이 문제를 해결하려면 user[key]의 각 값을 검사하면서, 반복문을 사용해 주어야 하는데 이때 반복문의 역할은 그 값이 객체인 경우 객체의 구조도 복사해주어야 한다. 이런 방식을 '깊은 복사(deep cloning)'라고 합니다.
 </p>
 
-<p>'얕은 복사(shallow copy)' 를 가능하게 해주는 Object.assign</p>
+<p>얕은 복사(shallow copy) 를 가능하게 해주는 것은 Object.assign</p>
 
 <h3>가비지 컬렉션</h3>
+<p>가비지 컬렉터(garbage collector)가 끊임없이 동작. 모든 객체를 모니터링하고 도달할 수 없는 객체는 삭제. 여기서 도달할 수 없는 객체는 접근하거나 사용할 수 없는 경우를 의미한다.</p>
+
+
+<h4>가비지 컬렉션 참조 방식</h4>
+<p>다음의 경우 모두 메모리에서 삭제된다.</p>
+<li>간단한 경우<li>
+
+```javascript
+// user엔 객체 참조 값이 저장됩니다.
+let user = {
+  name: "euion"
+};
+user = null; 
+```
+<li>참조 2개</li>
+
+``` javascript
+let star = {
+  name: "ariana"
+};
+
+let award = star;
+star = null;
+```
+<li>연결된 객체</li>
+
+``` javascript
+function marry(man, woman) {
+  woman.husband = man;
+  man.wife = woman;
+
+  return {
+    father: man,
+    mother: woman
+  }
+}
+
+let family = marry({
+  name: "Bieber"
+}, {
+  name: "Hailey"
+});
+
+delete family.father;
+delete family.mother.husband;
+```
+
+<ul>
+<li>가비지 컬랙션은 엔진에 의해 자동으로 수행된다.</li>
+<li>객체는 도달 가능한 상태일때 메모리에 남는다.</li>
+<li>참조된다고 해서 도달 가능한 것은 아님</li>
+</ul>
+
+<h3>메서드와 this</h3>
+<p><b>메서드(method)</b>객체 프로퍼티에 할당한 함수</p>
