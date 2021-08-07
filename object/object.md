@@ -64,13 +64,11 @@ let euion = {
 ```
 <p>`+` 기호를 활용하여 좀 더 복잡하게 활용할 수도 있다.</p>
 <h3>for ...in 반복문</h3>
+
 ```
 for (key in object) {
   // 각 프로퍼티 키(key)를 이용하여 본문(body)을 실행.
 }
-```
-
-```
 
 let user = {
   name: "euion",
@@ -90,3 +88,74 @@ for (let key in user) {
 
 <h4>프로퍼티에 순서가 있을까></h4>
 <p>정수프로퍼티는 자동으로 정렬되고 그 외 프로퍼티는 객체에 추가한 순서 그대로 정렬된다.</p>
+
+
+
+<h3>참조에 의한 객체 복사</h3>
+<p>원시값(문자열, 숫자, 불린 값)이 값 그 자체로 저장, 할당, 복사 되는 반면에 객체 타입은 참조에 의해 저장되고 복사된다.</p>
+
+<p> 아래의 값의 경우 각각 독립된 변수에 문자열 "Hello"가 저장된다.</p>
+
+
+```
+let message = "Hello!";
+let phrase = message;
+```
+
+<p> 이때 <b>변수엔 객체가 그대로 저장되는 것이 아니라, 객체가 저장되어있는 '메모리 주소’인 객체에 대한 '참조 값’이 저장</b>되는것. 즉 <b>객체의 참조값이 복사되고 객체는 복사되지 않는다.</b></p>
+
+<h4>객체 복사, 병합</h4>
+<p>복제가 필요한 상황일 경우 새로운 객체를 만든 다음 기존 객체의 프로퍼티들을 순회해 원시 수준까지 프로퍼티를 복사</p>
+
+```
+
+//객체 복사, 병합 예제
+let user = {
+    name: "euion",
+    age: 23
+  };
+  
+  let clone = {}; // 새로운 빈 객체
+  
+  // 빈 객체에 user 프로퍼티 전부를 복사해 넣음
+  for (let key in user) {
+    clone[key] = user[key];
+  }
+  
+  // 이제 clone은 완전히 독립적인 복제본이 되었다.
+  clone.name = "minsu"; // clone의 데이터를 변경
+  
+  alert( user.name ); // 기존 객체에는 여전히 euion이 있다.
+
+``` 
+<b>단점 : 원시값일 경우만 가정하게 됨</b>
+
+
+```
+  //중첩 객체 복사
+  let user = {
+    name: "euion",
+    sizes: {
+      height: 182,
+      width: 50
+    }
+  };
+  
+  let clone = Object.assign({}, user);
+  
+  alert( user.sizes === clone.sizes ); // true, 같은 객체.
+  
+  // user와 clone는 sizes를 공유.
+  user.sizes.width++;       // 한 객체에서 프로퍼티를 변경.
+  alert(clone.sizes.width); // 51, 다른 객체에서 변경 사항을 확인 가능.
+```
+
+<p>clone.sizes = user.sizes로 프로퍼티를 복사하는 것만으론 객체를 복제할 수 없다. user.sizes는 객체이기 때문에 참조 값이 복사되기 때문이다. clone.sizes = user.sizes로 프로퍼티를 복사하면 clone과 user는 같은 sizes를 공유하게 된다.</p>
+<br>
+<p>
+이 문제를 해결하려면 user[key]의 각 값을 검사하면서, 반복문을 사용해 주어야 하는데 이때 반복문의 역할은 그 값이 객체인 경우 객체의 구조도 복사해주어야 한다. 이런 방식을 '깊은 복사(deep cloning)'라고 합니다.
+</p>
+
+<p>'얕은 복사(shallow copy)' 를 가능하게 해주는 Object.assign</p>
+
+<h3>가비지 컬렉션</h3>
