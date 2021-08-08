@@ -317,9 +317,9 @@ function Star(name) {
   this.name = name;
   this.isStar = false;
 }
-let user = new User("아이유");
-alert(user.name); // 아이유
-alert(user.isStar); // false
+let star = new Star("아이유");
+alert(star.name); // 아이유
+alert(star.isStar); // false
 
 ```
 <p>new User(...)를 써서 함수를 실행하면 아래와 같은 알고리즘이 동작</p>
@@ -333,7 +333,7 @@ alert(user.isStar); // false
 <p>이는 아래 코드를 입력한 것과 동일하게 동작한다</p>
 
 ```javascript
-let user = {
+let star = {
   name: "아이유",
   isAdmin: false
 };
