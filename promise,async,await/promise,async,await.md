@@ -168,7 +168,7 @@ new Promise((resolve, reject) => {
 <p>브라우저 환경에선 이런 에러를 unhandledrejection 이벤트로 잡을 수 있습니다.</p>
 <hr>
 
-<h3>프라미스 API<h3>
+<h3>프라미스 API</h3>
 <p>Promise 클래스에는 5가지 정적 메서드가 있다.</p>
 
 <ol>
