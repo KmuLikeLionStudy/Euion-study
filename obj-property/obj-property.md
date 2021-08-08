@@ -1,16 +1,16 @@
 <h1>객체 프로퍼티</h1>
-<h3>프로퍼티 플래그<h3>
+<h3>프로퍼티 플래그</h3>
 
 <p>객체 프로퍼티는 값(value)와 함께 플래그(flag)라 불리는 특별한 속성 세가지를 갖는다.</p>
 <ul>
     <li> `writable` - true면 값을 수정할 수 있다, 그렇지 않다면 읽기만 가능 </li>
     <li> `enumerable` - true면 반복문을 사용해 나열할 수 있다. 그렇지 않다면 나열 불가. </li>
-    <li> `writable` - true면 프로퍼팉 삭제나 플래그 수정이 가능. 그렇지 않다면 프로퍼티 삭제와 플래그 수정이 불가능 </li>
+    <li> `writable` - true면 프로퍼티 삭제나 플래그 수정이 가능. 그렇지 않다면 프로퍼티 삭제와 플래그 수정이 불가능 </li>
 </ul>
 <hr>
 <p>이를 좀 더 구체적으로 살펴보았다</p>
 
-<h4>writable 플래그<h4>
+<h4>writable 플래그</h4>
 <p> `writable` 플래그를 사용해 user.name에 값을 쓰지 못하도록 해보았다. 이를 통해 writable 을 true로 변경하지 않는 한 그 누구도 객체의 이름을 변경할수 없게 되었다.</p>
 
 ```javascript
@@ -26,7 +26,7 @@ user.name = "mina"; // Error
 ```
 
 
-<h4>enumerable 플래그<h4>
+<h4>enumerable 플래그</h4>
 
 <p>특정 프로퍼티의 `enumerable` 플래그 값을 `false`로 설정하면 `for..in` 반복문에 나타나지 않게 할 수 있습니다. 커스텀 `toString`도 열거가 불가능하게 할 수 있다</p>
 
@@ -44,7 +44,7 @@ Object.defineProperty(user, "toString", {
 for (let key in user) alert(key); // name
 ```
 
-<h4>configurable 플래그<h4>
+<h4>configurable 플래그</h4>
 
 <p> `configurable:false ` 는 구성가능 하지 않음을 나타내는 non-contigurable flag이다. 어떤 프로퍼티의 configurable 플래그가 false로 설정되어 있다면 해당 프로퍼티는 객체에서 지울 수 없다. 내장객체 Math의 PI 프로퍼티가 대표적인 예시이다. 이 프로퍼티는 쓰기, 열거, 구성이 불가능하다.</p>
 
@@ -101,13 +101,13 @@ alert(user. company); // samsung
 <p>데이터 프로퍼티의 설명자와 접근자 프로퍼티의 설명자는 다르다.접근자 프로퍼티엔 설명자 value와 writable가 없는 대신에 get과 set이라는 함수가 있다. 접근자 프로퍼티가 갖는 설명자는 다음과 같다.</p>
 
 <ul>
-<li> `get` - 인수가 없는 함수. 프로퍼티를 읽을 때 동작</li>
-<li> `set` - 인수가 하나인 함수. 프로퍼티 값을 쓸때 호출</li>
-<li> `enumerable` - 데이터 프로퍼티와 동일함 </li>
-<li> `configurable` – 데이터 프로퍼티와 동일함</li>
+<li> get - 인수가 없는 함수. 프로퍼티를 읽을 때 동작</li>
+<li> set - 인수가 하나인 함수. 프로퍼티 값을 쓸때 호출</li>
+<li> enumerable - 데이터 프로퍼티와 동일함 </li>
+<li> configurable – 데이터 프로퍼티와 동일함</li>
 </ul>
 
-<p>아래와 같이 defineProperty에 설명자 get과 set을 전달하면 madeIn을 위한 접근자를 만들 수 있습니다.</p>
+<p>아래와 같이 defineProperty에 설명자 get과 set을 전달하면 madeIn을 위한 접근자를 만들 수 있다.</p>
 
 ```javascript
 let user={
