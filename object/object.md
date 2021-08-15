@@ -243,7 +243,28 @@ let user = {
 
 };
 ```
+<p>(PLUS) Execution Context<p>
+<p><b>실행 가능한 자바스크립트 코드 블록이 실행되는 환경</b>으로 코드가 잘 작동할 수 있도록 변수와 함수가 가진 값을 알고 이에 대한 환경을 구성하는 것을 말함.</p>
 
+<h3>EC의 3가지 종류</h3>
+<ol>
+  <li>Global Execution Context (전역 실행 컨텍스트)</li>
+  <li>Functional Execution Context (함수 실행 컨텍스트)</li>
+  <li>Eval Function Execution Context (eval 실행 컨텍스트)</li>
+</ol>
+
+<h4>Global Execution Context (전역 실행 컨텍스트)</h4>
+<pre>
+  가장 먼저 콜스택에 올라가는 EC이다. 전역 EC는 일반적인 다른 EC들과 달리 arguments 객체가 없으며, 전역 객체 하나만을 포함하는 스코프 체인과 this 가 있다.
+
+  그리고 전역 EC는 `<script />` 태그를 마주치면, 생성된다.
+</pre>
+
+<h4>Functional Execution Context (함수 실행 컨텍스트)</h4>
+<p>함수가 호출될 때마다 생성되는 EC로 arguments 와 스코프 체인, this 가 있다.</p>
+
+<h4>Eval Function Execution Context (Eval 실행 컨텍스트)</h4>
+<p>eval() 함수를 실행해서 만들어진 EC를 말한다.</p>
 
 <p>만약 여기서 user를 복사하여 다른 변수에 할당하고 user 는 전혀 다른 값으로 덮어썼을 경우??</p>
 <p>sayHi()는 원치 않는 값(null)을 참조하게 됨.</p>
