@@ -12,8 +12,8 @@
 <h1>개념 보충</h1>
 <ul>
 <li><a href="/etc/EC.md">This와 관련된 실행 컨텍스트 정리</a></li>
-<li><a href="/etc/this-method/md">this의 메소드 call, apply</a></li>
+<li><a href="/etc/this-method.md">this의 메소드 call, apply</a></li>
 <li><a href="/etc/SD-copy.md">shallow copy , deep-copy</a></li>
-<li><a href="JSruntime.md">JS 런타임 정리</a></li>
+<li><a href="/etc/JSruntime.md">JS 런타임 정리</a></li>
 
 </ul>
